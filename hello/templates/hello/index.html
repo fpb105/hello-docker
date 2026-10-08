@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Hello stack</title>
+</head>
+<body>
+  <button id="btn">Get message</button>
+  <p id="out"></p>
+
+  <script>
+    document.getElementById("btn").addEventListener("click", async () => {
+      const res = await fetch("/api/hello/");
+      const data = await res.json();
+      document.getElementById("out").textContent =
+        `${data.text} (button pressed ${data.clicks} times)`;
+    });
+  </script>
+</body>
+</html>
